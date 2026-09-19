@@ -42,17 +42,17 @@ That meant answering questions such as:
 
 ## Solution Architecture
 
-The workflow separates source evidence, transformation, validation, decision modeling, and reporting.
+The project separates raw evidence, structured analysis, decision modeling, and reporting so each step can be traced and tested independently.
 
 ![Databricks Medallion Architecture](assets/databricks_medallion_architecture.png)
 
-The Databricks pipeline uses a Bronze–Silver–Gold structure:
+The Databricks workflow follows a Bronze–Silver–Gold structure:
 
 - **Bronze:** source files, document pages, and source metadata
 - **Silver:** cleaned and structured evidence, KPI definitions, facility information, and financial assumptions
-- **Gold:** executive ESG summaries, financial pathways, data-quality summaries, resilience priorities, and project financial analysis
+- **Gold:** executive ESG summaries, financial pathways, data-quality outputs, resilience priorities, and project-level financial analysis
 
-The Gold layer feeds the Power BI model.
+The Gold layer feeds the Power BI semantic model and decision-support views.
 
 ![Power BI Semantic Model](assets/powerbi_semantic_model.png)
 
