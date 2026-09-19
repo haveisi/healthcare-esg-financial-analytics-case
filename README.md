@@ -4,13 +4,11 @@
 
 This project explores a practical question: how can community-health, ESG, resilience, and financial information be brought together in a way that supports management decisions?
 
-I used publicly available Marshfield Clinic information to build an end-to-end analytics prototype in Databricks, Python, SQL, and Power BI. The project moves from source evidence and data validation to materiality assessment, ESG-to-financial pathways, and scenario-based financial analysis.
+I used publicly available Marshfield Clinic information to build an end-to-end analytics prototype in Databricks, Python, SQL, and Power BI. The work moves from source evidence and validation to materiality assessment, ESG-to-financial pathways, and scenario-based financial analysis.
 
-> This is an independent portfolio case study. It was not commissioned, sponsored, reviewed, or endorsed by Marshfield Clinic or Sanford Health. Financial scenarios are illustrative unless explicitly identified as public-source values.
+This is an independent portfolio case study. It was not commissioned, sponsored, reviewed, or endorsed by Marshfield Clinic or Sanford Health. Financial scenarios are illustrative unless explicitly identified as public-source values.
 
----
-
-## Project at a Glance
+## What this project covers
 
 **Domain:** Healthcare sustainability, ESG, community impact, and resilience  
 **Tools:** Databricks, Python, SQL, Power BI, DAX  
@@ -18,11 +16,9 @@ I used publicly available Marshfield Clinic information to build an end-to-end a
 **Focus:** Community Health / ESG → Operational Impact → Financial Decision Support  
 **Outputs:** Materiality analysis, ESG-financial bridge, scenario model, data-quality controls, executive dashboard
 
----
+## Why I built this
 
-## Why I Built This
-
-Sustainability reporting can be good at describing performance, but management usually needs another layer of information:
+Sustainability reporting can describe performance well, but management usually needs another layer of information:
 
 **What does this issue mean operationally, financially, and in terms of priorities?**
 
@@ -30,17 +26,15 @@ I built this case to test whether public community-health, financial, and organi
 
 The goal was not to create another ESG scorecard. I wanted to connect evidence to decisions.
 
-That meant answering questions such as:
+That meant asking:
 
 - Which issues are most material from both impact and financial perspectives?
 - What financial channels might those issues affect?
 - Which assumptions can be quantified now, and which still require internal data?
 - How do project economics change under different scenarios?
-- Can all of this be presented in a way that is useful to finance, operations, sustainability, and leadership?
+- Can the analysis be presented in a way that is useful to finance, operations, sustainability, and leadership?
 
----
-
-## Solution Architecture
+## Solution architecture
 
 The project separates raw evidence, structured analysis, decision modeling, and reporting so each step can be traced and tested independently.
 
@@ -56,21 +50,19 @@ The Gold layer feeds the Power BI semantic model and decision-support views.
 
 ![Power BI Semantic Model](assets/powerbi_semantic_model.png)
 
----
+## What I built
 
-## What I Built
-
-### 1. Evidence and Source Traceability
+### Evidence and source traceability
 
 I started with public-source documents, including community-health assessments, financial filings, and financing documents.
 
-Each source was tracked through a source register and linked to the analytical model so that important findings could be traced back to the original evidence.
+Each source was tracked through a source register and linked to the analytical model so important findings could be traced back to the original evidence.
 
-### 2. Data Preparation and Validation
+### Data preparation and validation
 
 I used Python and SQL to clean and structure the evidence, standardize fields and categories, and prepare decision-ready tables.
 
-I also added validation checks for:
+I also added checks for:
 
 - missing identifiers
 - invalid or incomplete values
@@ -81,7 +73,7 @@ I also added validation checks for:
 
 I kept validation separate from visualization so data problems could be identified before they reached the dashboard.
 
-### 3. Materiality and ESG Analysis
+### Materiality and ESG analysis
 
 I translated public evidence into an analytical materiality framework covering issues such as:
 
@@ -93,7 +85,7 @@ I translated public evidence into an analytical materiality framework covering i
 
 The prioritization scores are analytical outputs developed for this case and are not Marshfield-published ratings.
 
-### 4. ESG-to-Financial Translation
+### ESG-to-financial translation
 
 One of the main objectives was to move beyond reporting and identify how ESG and community-health issues could affect financial performance.
 
@@ -108,7 +100,7 @@ The model links issues to potential financial channels such as:
 
 Some linkages can be quantified using public information. Others are explicitly marked as requiring internal data.
 
-### 5. Financial Scenario Analysis
+### Financial scenario analysis
 
 I built illustrative scenarios around:
 
@@ -120,9 +112,7 @@ I built illustrative scenarios around:
 
 These scenarios are sensitivity-based and are intended to demonstrate decision logic, not to represent Marshfield Clinic's actual project economics.
 
----
-
-## Power BI Decision Support
+## Power BI decision support
 
 ### Executive ESG & Decision Support
 
@@ -148,9 +138,13 @@ This page shows how ESG and community-health issues may translate into operating
 
 This page connects modeled project assumptions to CAPEX, annual benefit, NPV, payback, and benefit-cost metrics.
 
----
+### Data Quality, Evidence & Gaps
 
-## Challenges and Decisions
+![Data Quality, Evidence & Gaps](screenshots/Data%20Quality%2C%20Evidence%20%26%20Gaps.png)
+
+This page tracks source reliability, lineage status, verified evidence, and important internal-data gaps.
+
+## Challenges I worked through
 
 ### Separating evidence from assumptions
 
@@ -172,13 +166,11 @@ I also found that descriptive fields such as `financial_channel` were useful for
 
 I separated descriptive dimensions from financial logic instead of forcing one field to control multiple behaviors.
 
----
-
-## Data Gaps
+## Data gaps
 
 Public evidence was sufficient to support community-health, financing, and selected governance analysis.
 
-However, several important environmental metrics require internal operational data, including:
+Several important environmental metrics still require internal operational data, including:
 
 - energy consumption
 - energy cost
@@ -190,17 +182,38 @@ However, several important environmental metrics require internal operational da
 
 I treated these as data gaps rather than estimating values without evidence.
 
----
-
-## What I Learned
+## What I learned
 
 The main lesson from this project was that sustainability metrics become more useful when they are tied to the same decision structure used for capital and operational planning.
 
 The hardest part was not building the dashboard. It was deciding which information was reliable, separating observed values from modeled assumptions, designing the data relationships correctly, and making sure the financial interpretation did not go beyond what the evidence could support.
 
----
+## Key files
 
-## Skills Demonstrated
+### Python
+
+- `03_Silver_Text_Cleaning.py`
+- `04_Structured_Evidence.py`
+- `05_Quantitative_Evidence.py`
+- `08_ESG_Financial_Bridge.py`
+- `09_FP&A_Scenario_Model.py`
+- `14_PowerBI_Gold_Model.py`
+
+### SQL
+
+- `01_bronze_marshfield_pdf_ingestion.sql`
+- `02_silver_marshfield_evidence_preparation.sql`
+- `03_silver_structured_evidence.sql`
+- `04_clean_project_data.sql`
+- `05_financial_summary.sql`
+
+### Power BI
+
+- PBIX decision-support model
+- PDF report export
+- documented DAX measures
+
+## Skills demonstrated
 
 - Healthcare sustainability and ESG analytics
 - Databricks medallion architecture
@@ -219,7 +232,14 @@ The hardest part was not building the dashboard. It was deciding which informati
 - Executive reporting
 - Audit-ready documentation
 
----
+## Supporting documentation
+
+- [Methodology](docs/methodology.md)
+- [Assumptions](docs/assumptions.md)
+- [Data Dictionary](docs/data_dictionary.md)
+- [Limitations](docs/limitations.md)
+- [Source Manifest](data/source_manifest.csv)
+- [Power BI Measures](powerbi/measures.md)
 
 ## Limitations
 
