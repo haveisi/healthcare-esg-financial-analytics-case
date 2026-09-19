@@ -1,0 +1,10 @@
+issue_id,metric_name,unit,data_status
+E01,Energy Consumption,kWh / MMBtu,INTERNAL_DATA_REQUIRED
+E02,Scope 1 GHG Emissions,tCO2e,INTERNAL_DATA_REQUIRED
+E03,Scope 2 GHG Emissions,tCO2e,INTERNAL_DATA_REQUIRED
+E04,Water Consumption,gallons / m3,INTERNAL_DATA_REQUIRED
+E05,Waste Generation,tons,INTERNAL_DATA_REQUIRED
+E06,Renewable Electricity,percent,INTERNAL_DATA_REQUIRED
+E07,Energy Cost,USD,INTERNAL_DATA_REQUIRED
+E08,Facility Climate Resilience,risk score,MODELED
+E09,Facility Footprint,sq ft / facilities,PARTIALLY_PUBLIC

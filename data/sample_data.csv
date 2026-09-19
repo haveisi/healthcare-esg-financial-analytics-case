@@ -1,0 +1,4 @@
+project_id,project_name,category,capex,annual_savings,annual_operating_cost,annual_net_benefit,discount_rate,project_life_years,financial_scenario,financial_channel,data_status
+P001,LED Retrofit,Energy Efficiency,250000,65000,5000,60000,0.07,10,Base,Cost Savings,Modeled
+P002,Building Controls Upgrade,Energy Efficiency,500000,125000,12000,113000,0.07,12,Base,Cost Savings,Modeled
+P003,Resilience Upgrade,Resilience,800000,85000,15000,70000,0.07,15,Base,Risk Avoidance,Modeled

@@ -1,0 +1,4 @@
+scenario_id,intervention_id,project_name,scenario_name,capex,annual_operating_savings,annual_opex_increase,annual_net_benefit,useful_life_years,discount_rate,residual_value,simple_payback_years,npv,pv_operating_benefits,benefit_cost_ratio,financial_case,data_status,notes
+SCN001_LOW,INT005,Facility energy-efficiency retrofit,Low Benefit,2200000.0,325000.0,30000.0,,10,0.08,0.0,,,,,NEGATIVE_NPV,ILLUSTRATIVE_NOT_MARSHFIELD_REPORTED,Conservative illustrative scenario.
+SCN001_BASE,INT005,Facility energy-efficiency retrofit,Base Case,2000000.0,425000.0,25000.0,,10,0.07,0.0,,,,,NEGATIVE_NPV,ILLUSTRATIVE_NOT_MARSHFIELD_REPORTED,Base illustrative scenario.
+SCN001_HIGH,INT005,Facility energy-efficiency retrofit,High Benefit,1800000.0,525000.0,20000.0,,10,0.06,0.0,,,,,NEGATIVE_NPV,ILLUSTRATIVE_NOT_MARSHFIELD_REPORTED,Upside illustrative scenario.
