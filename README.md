@@ -1,196 +1,230 @@
-# Healthcare Sustainability & Financial Analytics Case
+# Healthcare ESG, Resilience & Financial Decision Analytics
 
-Connecting sustainability and community-impact information with operational and financial decision-making.
+**Independent Marshfield Clinic public-evidence case study**
 
-> **Independent portfolio case study.** This project uses publicly available information associated with Marshfield Clinic as an analytical example. It was not commissioned, sponsored, reviewed, or endorsed by Marshfield Clinic or Sanford Health. Financial scenarios are illustrative unless explicitly identified as public-source values.
+This project explores a practical question: how can community-health, ESG, resilience, and financial information be brought together in a way that supports management decisions?
+
+I used publicly available Marshfield Clinic information to build an end-to-end analytics prototype in Databricks, Python, SQL, and Power BI. The project moves from source evidence and data validation to materiality assessment, ESG-to-financial pathways, and scenario-based financial analysis.
+
+> This is an independent portfolio case study. It was not commissioned, sponsored, reviewed, or endorsed by Marshfield Clinic or Sanford Health. Financial scenarios are illustrative unless explicitly identified as public-source values.
+
+---
 
 ## Project at a Glance
 
-**Domain:** Healthcare sustainability / ESG analytics  
-**Tools:** Power BI, DAX, Python, SQL, Databricks-style medallion architecture  
-**Focus:** Sustainability → Operations → Finance  
-**Outputs:** Executive dashboard, project analysis, financial scenario model, QA controls  
-**Data:** Public information + clearly labeled modeled assumptions
+**Domain:** Healthcare sustainability, ESG, community impact, and resilience  
+**Tools:** Databricks, Python, SQL, Power BI, DAX  
+**Architecture:** Bronze → Silver → Gold  
+**Focus:** Community Health / ESG → Operational Impact → Financial Decision Support  
+**Outputs:** Materiality analysis, ESG-financial bridge, scenario model, data-quality controls, executive dashboard
+
+---
 
 ## Why I Built This
 
-Sustainability reporting often tells us what happened. It does not always answer the next management question: **what does this mean operationally and financially?**
+Sustainability reporting can be good at describing performance, but management usually needs another layer of information:
 
-I built this case to explore how healthcare sustainability and community-impact information could be connected to project economics, capital decisions, resilience, and executive reporting.
+**What does this issue mean operationally, financially, and in terms of priorities?**
 
-The goal was not to build another ESG scorecard. I wanted to test whether sustainability information could be structured in the same decision framework used by operations and finance.
+I built this case to test whether public community-health, financial, and organizational evidence could be transformed into a traceable decision model.
 
-## Business Questions
+The goal was not to create another ESG scorecard. I wanted to connect evidence to decisions.
 
-1. Which sustainability and community-impact metrics are most useful for management decisions?
-2. How can sustainability initiatives be translated into CAPEX, operating savings, and annual net benefit?
-3. How do project rankings change under different financial assumptions?
-4. Can sustainability and financial performance be viewed within the same Power BI workflow?
-5. What information would still be required before the modeled scenarios could support real capital decisions?
+That meant answering questions such as:
 
-## Analytical Workflow
+- Which issues are most material from both impact and financial perspectives?
+- What financial channels might those issues affect?
+- Which assumptions can be quantified now, and which still require internal data?
+- How do project economics change under different scenarios?
+- Can all of this be presented in a way that is useful to finance, operations, sustainability, and leadership?
 
-```text
-Public Sources
-      ↓
-Raw / Bronze Data
-      ↓
-Cleaning + Standardization
-Python / SQL
-      ↓
-Validation / QA
-      ↓
-Analytical / Gold Tables
-      ↓
-Financial Scenario Model
-      ↓
-Power BI
-      ↓
-Executive + Operational Decision Views
-```
+---
 
-I separated source collection, cleaning, validation, analytical calculations, and visualization rather than performing every transformation inside Power BI. This made assumptions easier to trace and calculations easier to test independently.
+## Solution Architecture
+
+The workflow separates source evidence, transformation, validation, decision modeling, and reporting.
+
+![Databricks Medallion Architecture](assets/databricks_medallion_architecture.png)
+
+The Databricks pipeline uses a Bronze–Silver–Gold structure:
+
+- **Bronze:** source files, document pages, and source metadata
+- **Silver:** cleaned and structured evidence, KPI definitions, facility information, and financial assumptions
+- **Gold:** executive ESG summaries, financial pathways, data-quality summaries, resilience priorities, and project financial analysis
+
+The Gold layer feeds the Power BI model.
+
+![Power BI Semantic Model](assets/powerbi_semantic_model.png)
+
+---
 
 ## What I Built
 
-### 1. Data Preparation
+### 1. Evidence and Source Traceability
 
-I organized public information into structured project, operational, sustainability, community-impact, and financial tables. I standardized field names, units, categories, and project identifiers before loading the analytical model.
+I started with public-source documents, including community-health assessments, financial filings, and financing documents.
 
-### 2. Validation
+Each source was tracked through a source register and linked to the analytical model so that important findings could be traced back to the original evidence.
 
-I added checks for missing identifiers, invalid financial values, inconsistent categories, duplicate rows, and incomplete assumptions. Validation logic was kept separate from visualization so problematic records could be identified before reporting.
+### 2. Data Preparation and Validation
 
-### 3. Financial Modeling
+I used Python and SQL to clean and structure the evidence, standardize fields and categories, and prepare decision-ready tables.
 
-I modeled project-level CAPEX, annual operating impact, annual net benefit, and scenario-dependent financial outcomes. Where reliable real-world values were unavailable, assumptions were explicitly labeled as modeled rather than observed.
+I also added validation checks for:
 
-### 4. Power BI Decision Layer
+- missing identifiers
+- invalid or incomplete values
+- inconsistent categories
+- duplicate records
+- incomplete assumptions
+- source and lineage status
 
-The report is organized around four views:
+I kept validation separate from visualization so data problems could be identified before they reached the dashboard.
 
-- **Executive Overview** — high-level sustainability, operational, and financial indicators
-- **Sustainability & Operations** — operational drivers behind headline metrics
-- **Project Analysis** — initiative-level comparison and prioritization
-- **Financial Scenario Analysis** — CAPEX, annual net benefit, NPV, IRR, and scenario sensitivity
+### 3. Materiality and ESG Analysis
 
-## Dashboard Screenshots
+I translated public evidence into an analytical materiality framework covering issues such as:
 
-Add final screenshots to the `screenshots/` folder using these names:
+- access to care
+- behavioral health
+- health equity
+- substance use
+- financial resilience and capital structure
 
-- `01_executive_overview.png`
-- `02_sustainability_operations.png`
-- `03_project_analysis.png`
-- `04_financial_scenarios.png`
+The prioritization scores are analytical outputs developed for this case and are not Marshfield-published ratings.
 
-Example Markdown after adding an image:
+### 4. ESG-to-Financial Translation
 
-```markdown
-![Executive Overview](screenshots/01_executive_overview.png)
-```
+One of the main objectives was to move beyond reporting and identify how ESG and community-health issues could affect financial performance.
+
+The model links issues to potential financial channels such as:
+
+- operating cost
+- revenue and utilization
+- uncompensated care
+- community benefit
+- debt and cost of capital
+- capital availability
+
+Some linkages can be quantified using public information. Others are explicitly marked as requiring internal data.
+
+### 5. Financial Scenario Analysis
+
+I built illustrative scenarios around:
+
+- CAPEX
+- annual net benefit
+- NPV
+- payback
+- benefit-cost ratio
+
+These scenarios are sensitivity-based and are intended to demonstrate decision logic, not to represent Marshfield Clinic's actual project economics.
+
+---
+
+## Power BI Decision Support
+
+### Executive ESG & Decision Support
+
+![Executive ESG & Decision Support](screenshots/Executive%20ESG%20%26%20Decision%20Support.png)
+
+This page provides a management-level view of material issues, evidence strength, and decision context.
+
+### Materiality, Impacts, Risks & Opportunities
+
+![Materiality, Impacts, Risks & Opportunities](screenshots/Materiality%2C%20Impacts%2C%20Risks%20%26%20Opportunities.png)
+
+This view connects community and organizational issues with impact, financial significance, stakeholders, and available evidence.
+
+### ESG-to-Financial Impact
+
+![ESG Financial Impact](screenshots/ESG%20Financial%20Impact.png)
+
+This page shows how ESG and community-health issues may translate into operating and financial effects.
+
+### Financial Scenario Analysis
+
+![Financial Scenario Analysis](screenshots/Financial%20Scenario%20Analysis.png)
+
+This page connects modeled project assumptions to CAPEX, annual benefit, NPV, payback, and benefit-cost metrics.
+
+---
 
 ## Challenges and Decisions
 
-### Scenario Filtering
+### Separating evidence from assumptions
 
-One issue during development was that CAPEX did not initially respond correctly to the scenario slicer. The problem was not formatting; it was the relationship and filter context between the scenario logic and project-level calculations.
+The biggest analytical challenge was distinguishing between what could be supported by public evidence and what had to remain modeled.
 
-I corrected the model so scenario-sensitive measures respond to the selected scenario while static project attributes remain unchanged where appropriate.
+I made that distinction explicit throughout the project rather than filling gaps with unsupported estimates.
 
-### Descriptive Fields vs. Calculation Logic
+### Scenario filtering in Power BI
 
-I also found that descriptive fields such as `financial_channel` were not always appropriate as calculation drivers. I separated descriptive dimensions from financial logic rather than forcing one field to control multiple behaviors.
+One issue during development was that CAPEX did not initially respond correctly to the scenario slicer.
 
-### Data Availability
+The problem was not the visual. It was the relationship and filter context between the scenario logic and the project-level calculations.
 
-The most important analytical constraint was distinguishing what could be supported by public information from what had to remain modeled. That distinction is documented throughout the repository.
+I corrected the model so scenario-sensitive measures respond to user selections while static project attributes remain unchanged where appropriate.
 
-## Key Power BI Measures
+### Descriptive fields vs. calculation logic
 
-See [`powerbi/measures.md`](powerbi/measures.md) for example DAX measures used in the model.
+I also found that descriptive fields such as `financial_channel` were useful for interpretation but not always appropriate as direct calculation drivers.
 
-## Assumptions
+I separated descriptive dimensions from financial logic instead of forcing one field to control multiple behaviors.
 
-See [`docs/assumptions.md`](docs/assumptions.md).
+---
 
-## Data Dictionary
+## Data Gaps
 
-See [`docs/data_dictionary.md`](docs/data_dictionary.md).
+Public evidence was sufficient to support community-health, financing, and selected governance analysis.
 
-## Source Traceability
+However, several important environmental metrics require internal operational data, including:
 
-See [`data/source_manifest.csv`](data/source_manifest.csv).
+- energy consumption
+- energy cost
+- renewable electricity
+- Scope 1 emissions
+- Scope 2 emissions
+- water consumption
+- waste generation
 
-## Limitations
+I treated these as data gaps rather than estimating values without evidence.
 
-This is not an internal Marshfield Clinic analysis. I did not have access to facility utility bills, internal capital plans, confidential operating data, procurement records, engineering estimates, or private financial records.
-
-The financial scenarios therefore demonstrate analytical architecture and decision logic rather than estimates of Marshfield Clinic's actual project economics.
+---
 
 ## What I Learned
 
-The main lesson from this case was that sustainability metrics become more useful when they are tied to the same decision structure used for capital and operational planning.
+The main lesson from this project was that sustainability metrics become more useful when they are tied to the same decision structure used for capital and operational planning.
 
-The difficult part was not visualization. The harder work was deciding which information was reliable, separating observed values from modeled assumptions, designing relationships that behaved correctly under filtering, and ensuring that the financial interpretation did not overstate what the underlying data could support.
+The hardest part was not building the dashboard. It was deciding which information was reliable, separating observed values from modeled assumptions, designing the data relationships correctly, and making sure the financial interpretation did not go beyond what the evidence could support.
+
+---
 
 ## Skills Demonstrated
 
-- Healthcare sustainability / ESG analytics
-- Power BI dashboard development
-- DAX
-- Data modeling
+- Healthcare sustainability and ESG analytics
+- Databricks medallion architecture
 - Python / pandas
 - SQL
+- Power BI
+- DAX
+- Data modeling
+- Evidence lineage and source traceability
 - Data validation and QA
-- Financial scenario analysis
+- Materiality analysis
+- Financial scenario modeling
 - CAPEX / OPEX analysis
 - NPV / IRR
 - Sustainability-to-finance translation
 - Executive reporting
-- Documentation and auditability
+- Audit-ready documentation
 
-## Repository Structure
+---
 
-```text
-healthcare-sustainability-analytics-marshfield/
-│
-├── README.md
-├── LICENSE
-├── .gitignore
-│
-├── docs/
-│   ├── methodology.md
-│   ├── assumptions.md
-│   ├── data_dictionary.md
-│   └── limitations.md
-│
-├── data/
-│   ├── README.md
-│   ├── sample_data.csv
-│   └── source_manifest.csv
-│
-├── src/
-│   ├── data_cleaning.py
-│   ├── validation.py
-│   └── financial_analysis.py
-│
-├── sql/
-│   ├── clean_project_data.sql
-│   └── financial_summary.sql
-│
-├── powerbi/
-│   ├── README.md
-│   └── measures.md
-│
-├── screenshots/
-│   └── README.md
-│
-└── assets/
-    └── README.md
-```
+## Limitations
 
-## Portfolio Positioning
+This is not an internal Marshfield Clinic analysis.
 
-**Healthcare Sustainability & Financial Analytics — Independent Case Study**
+I did not have access to confidential operating data, facility utility bills, internal capital plans, procurement records, engineering estimates, or private financial information.
 
-Developed an end-to-end healthcare sustainability analytics prototype using public Marshfield Clinic information, integrating operational, community-impact, and financial scenario data through Python, SQL, and Power BI; modeled CAPEX, annual net benefit, NPV, IRR, and scenario-sensitive decision metrics with documented QA controls and assumptions.
+The project should therefore be viewed as a demonstration of analytical architecture and decision-support methods rather than an estimate of Marshfield Clinic's actual project economics.
